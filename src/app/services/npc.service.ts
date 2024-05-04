@@ -6,7 +6,7 @@ import { NPC, Race } from '../../../core/interfaces';
 @Injectable({
   providedIn: 'root',
 })
-export class TestService {
+export class NPCService {
   npc$ = new BehaviorSubject<NPC[]>([]);
   race$ = new BehaviorSubject<Race[]>([]);
 

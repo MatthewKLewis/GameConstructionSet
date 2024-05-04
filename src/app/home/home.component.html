@@ -1,10 +1,35 @@
-<div class="wrapper">
-  @for (npc of testService.npc$.getValue(); track npc) {
+
+<h1>Home</h1>
+<div class="tile-grid">
+  <div class="tile" [routerLink]="['/npc']">
+    <h2>NPCs</h2>
+  </div>
+  <div class="tile" [routerLink]="['/race']">
+    <h2>Races</h2>
+  </div>
+  <div class="tile" [routerLink]="['/404']">
+    <h2>PLACEHOLDER</h2>
+  </div>
+  <div class="tile" [routerLink]="['/404']">
+    <h2>PLACEHOLDER</h2>
+  </div>
+  <div class="tile" [routerLink]="['/404']">
+    <h2>PLACEHOLDER</h2>
+  </div>
+  <div class="tile" [routerLink]="['/404']">
+    <h2>PLACEHOLDER</h2>
+  </div>
+  <div class="tile" [routerLink]="['/404']">
+    <h2>PLACEHOLDER</h2>
+  </div>
+  
+  <!-- @for (npc of npcService.npc$.getValue(); track npc) {
     <div class="npc">
       <span>{{npc.FirstName}}</span>
       <span>{{npc.LastName}}</span>
       <span>{{npc.RaceName}}</span>
       <span>{{npc.WorldID}}</span>
     </div>
-  }
+  } -->
 </div>
+

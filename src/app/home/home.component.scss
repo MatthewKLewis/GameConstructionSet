@@ -1,0 +1,20 @@
+h1 {
+  text-align: center;
+}
+
+.tile-grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  .tile {
+    margin: 1em;
+    width: 200px;
+    height: 200px;
+    background-color: #e0e0e0;
+
+    h2 {
+      text-align: center;
+    }
+  }
+}

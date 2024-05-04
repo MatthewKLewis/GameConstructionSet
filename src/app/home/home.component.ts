@@ -1,17 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { TestService } from '../services/test.service';
+import { NPCService } from '../services/npc.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
 export class HomeComponent implements OnInit {
-  constructor(public testService: TestService) {}
+  constructor(public npcService: NPCService) {}
   ngOnInit() {
-    this.testService.GetAllNPCs();
-    this.testService.GetAllRaces();
+    console.log('homepage');
+    this.npcService.GetAllNPCs();
+    this.npcService.GetAllRaces();
   }
 }

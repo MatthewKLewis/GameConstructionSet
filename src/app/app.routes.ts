@@ -1,13 +1,13 @@
 import { Routes } from '@angular/router';
-import { AuthGuard } from './guards/auth.guard';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
+import { NpcComponent } from './npc/npc.component';
+import { RaceComponent } from './race/race.component';
 
 export const routes: Routes = [
-  { path: 'login', component: LoginComponent },
-  //
-  { path: 'home', component: HomeComponent },
-  { path: '', redirectTo: '404', pathMatch: 'full' },
-  { path: '**', component: PageNotFoundComponent, canActivate: [AuthGuard] },
+  { path: '', component: HomeComponent },
+  { path: 'npc', component: NpcComponent },
+  { path: 'race', component: RaceComponent },
+  //{ path: '', redirectTo: '404', pathMatch: 'full' },
+  { path: '**', component: PageNotFoundComponent },
 ];
