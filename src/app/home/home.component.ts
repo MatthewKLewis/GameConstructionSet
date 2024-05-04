@@ -9,11 +9,4 @@ import { RouterLink } from '@angular/router';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
-export class HomeComponent implements OnInit {
-  constructor(public npcService: NPCService) {}
-  ngOnInit() {
-    console.log('homepage');
-    this.npcService.GetAllNPCs();
-    this.npcService.GetAllRaces();
-  }
-}
+export class HomeComponent {}

@@ -1,1 +1,19 @@
-<p>npc works!</p>
+<div class="table">
+  <h1>NPC Table</h1>
+  <div class="row">
+      <b>ID</b>
+      <b>First Name</b>
+      <b>Last Name</b>
+      <b>Race</b>
+      <b>World ID</b>
+  </div>
+  @for (npc of npcService.npc$.getValue(); track npc) {
+    <div class="row">
+      <span>{{npc.ID}}</span>
+      <span>{{npc.FirstName}}</span>
+      <span>{{npc.LastName}}</span>
+      <span>{{npc.RaceName}}</span>
+      <span>{{npc.WorldID}}</span>
+    </div>
+  }
+</div>

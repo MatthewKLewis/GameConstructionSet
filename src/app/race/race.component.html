@@ -1,1 +1,13 @@
-<p>race works!</p>
+<div class="table">
+  <h1>Race Table</h1>
+  <div class="row">
+      <b>ID</b>
+      <b>Name</b>
+  </div>
+  @for (race of npcService.race$.getValue(); track race) {
+    <div class="row">
+      <span>{{race.ID}}</span>
+      <span>{{race.Name}}</span>
+    </div>
+  }
+</div>

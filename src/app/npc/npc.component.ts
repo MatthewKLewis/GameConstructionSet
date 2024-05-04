@@ -1,12 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { NPCService } from '../services/npc.service';
+import { NPC } from '../../../core/interfaces';
 
 @Component({
   selector: 'app-npc',
   standalone: true,
   imports: [],
   templateUrl: './npc.component.html',
-  styleUrl: './npc.component.scss'
+  styleUrl: './npc.component.scss',
 })
-export class NpcComponent {
-
+export class NpcComponent implements OnInit {
+  constructor(public npcService: NPCService) {}
+  ngOnInit(): void {
+    this.npcService.GetAllNPCs();
+  }
 }

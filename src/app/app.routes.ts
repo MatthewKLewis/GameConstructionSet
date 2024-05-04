@@ -8,6 +8,5 @@ export const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'npc', component: NpcComponent },
   { path: 'race', component: RaceComponent },
-  //{ path: '', redirectTo: '404', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent },
 ];
