@@ -24,6 +24,8 @@ export class NPCService {
               LastName: npc.LastName,
               RaceName: npc.RaceName,
               WorldID: npc.WorldID,
+              Family: npc.Family,
+              Religion: npc.Religion,
             };
             return tempNPC;
           });

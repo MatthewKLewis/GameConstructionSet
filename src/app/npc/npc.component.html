@@ -5,6 +5,8 @@
       <b>First Name</b>
       <b>Last Name</b>
       <b>Race</b>
+      <b>Family</b>
+      <b>Religion</b>
       <b>World ID</b>
   </div>
   @for (npc of npcService.npc$.getValue(); track npc) {
@@ -13,6 +15,8 @@
       <span>{{npc.FirstName}}</span>
       <span>{{npc.LastName}}</span>
       <span>{{npc.RaceName}}</span>
+      <span>{{npc.Family}}</span>
+      <span>{{npc.Religion}}</span>
       <span>{{npc.WorldID}}</span>
     </div>
   }

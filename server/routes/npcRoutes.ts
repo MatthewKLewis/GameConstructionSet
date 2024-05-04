@@ -15,8 +15,11 @@ router.get('/GetAll', (req, response) => {
         FirstName, 
         LastName,
         WorldID,
-        (Select Name from tblRace r where r.ID = RaceID) as Race
+        (Select Name from tblRace r where r.ID = RaceID) as Race,
+        (Select Name from tblFamily f where f.ID = FamilyID) as Family,
+        (Select Name from tblReligion rel where rel.ID = ReligionID) as Religion
       FROM MKLGame.dbo.tblNPC
+      ORDER BY LastName asc
       `,
       (err, queryResult) => {
         if (err) response.send(err);
@@ -28,6 +31,8 @@ router.get('/GetAll', (req, response) => {
               LastName: rec.LastName,
               RaceName: rec.Race,
               WorldID: rec.WorldID,
+              Family: rec.Family,
+              Religion: rec.Religion,
             };
             return npc;
           });
