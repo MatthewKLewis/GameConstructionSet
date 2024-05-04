@@ -1,1 +1,10 @@
-<p>home works!</p>
+<div class="wrapper">
+  @for (npc of testService.npc$.getValue(); track npc) {
+    <div class="npc">
+      <span>{{npc.FirstName}}</span>
+      <span>{{npc.LastName}}</span>
+      <span>{{npc.RaceName}}</span>
+      <span>{{npc.WorldID}}</span>
+    </div>
+  }
+</div>

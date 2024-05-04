@@ -11,12 +11,7 @@ import { TestService } from '../services/test.service';
 export class HomeComponent implements OnInit {
   constructor(public testService: TestService) {}
   ngOnInit() {
-    this.testService.GetAllNPCs().subscribe((res: any) => {
-      console.log(res);
-    });
-
-    this.testService.GetAllRaces().subscribe((res: any) => {
-      console.log(res);
-    });
+    this.testService.GetAllNPCs();
+    this.testService.GetAllRaces();
   }
 }
