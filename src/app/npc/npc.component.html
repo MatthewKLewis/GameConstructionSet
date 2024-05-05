@@ -1,5 +1,8 @@
 <div class="table">
-  <h1>NPC Table</h1>
+  <div class="banner">
+    <h1>NPC Table</h1>
+    <button (click)="createNPC()">Create New NPC</button>
+  </div>
   <div class="row">
       <b>ID</b>
       <b>First Name</b>
@@ -8,16 +11,18 @@
       <b>Family</b>
       <b>Religion</b>
       <b>World ID</b>
+      <b>Details</b>
   </div>
   @for (npc of npcService.npc$.getValue(); track npc) {
     <div class="row">
       <span>{{npc.ID}}</span>
       <span>{{npc.FirstName}}</span>
       <span>{{npc.LastName}}</span>
-      <span>{{npc.RaceName}}</span>
-      <span>{{npc.Family}}</span>
-      <span>{{npc.Religion}}</span>
+      <span>{{npc.Race.Name}}</span>
+      <span>{{npc.Family.Name}}</span>
+      <span>{{npc.Religion.Name}}</span>
       <span>{{npc.WorldID}}</span>
+      <a style="color: blue;" [routerLink]="'npc-details/' + npc.ID">View Details</a>
     </div>
   }
 </div>

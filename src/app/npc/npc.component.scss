@@ -1,5 +1,16 @@
 .table {
   border-bottom: 1px solid #e0e0e0;
+
+  .banner {
+    display: flex;
+    flex-direction: row;
+    place-items: center;
+    justify-content: space-between;
+
+    button {
+      height: 2em;
+    }
+  }
   
   .row {
     border: 1px solid #e0e0e0;
@@ -7,6 +18,5 @@
     padding: 1em;
     display: grid;
     grid-template-columns: repeat(10, 10%);
-
   }
 }

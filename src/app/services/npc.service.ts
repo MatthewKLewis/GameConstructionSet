@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, map } from 'rxjs';
+import { BehaviorSubject, Observable, map } from 'rxjs';
 import { NPC, Race } from '../../../core/interfaces';
 
 @Injectable({
@@ -22,7 +22,7 @@ export class NPCService {
               ID: npc.ID,
               FirstName: npc.FirstName,
               LastName: npc.LastName,
-              RaceName: npc.RaceName,
+              Race: npc.Race,
               WorldID: npc.WorldID,
               Family: npc.Family,
               Religion: npc.Religion,
@@ -51,5 +51,9 @@ export class NPCService {
         })
       )
       .subscribe();
+  }
+
+  CreateNPC(newNPC: NPC): Observable<any> {
+    return this.http.post('http://localhost:4201/npc/Create', newNPC);
   }
 }
