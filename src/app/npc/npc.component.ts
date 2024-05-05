@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NPCService } from '../services/npc.service';
 import { RouterLink } from '@angular/router';
-import { Confirmation, NPC } from '../../../core/interfaces';
+import { MatDialog } from '@angular/material/dialog';
+import { NpcCreateComponent } from './npc-create/npc-create.component';
 
 @Component({
   selector: 'app-npc',
@@ -11,27 +12,16 @@ import { Confirmation, NPC } from '../../../core/interfaces';
   styleUrl: './npc.component.scss',
 })
 export class NpcComponent implements OnInit {
-  constructor(public npcService: NPCService) {}
+  constructor(public npcService: NPCService, private dialog: MatDialog) {}
+
   ngOnInit(): void {
     this.npcService.GetAllNPCs();
   }
 
   createNPC() {
-    let newNPC: NPC = {
-      ID: 0,
-      FirstName: 'Finketty',
-      LastName: 'Pete',
-      Family: { ID: 2, Name: 'Empty' },
-      Religion: { ID: 2, Name: 'Empty' },
-      Race: { ID: 2, Name: 'Empty' },
-      WorldID: 1,
-    };
-    this.npcService.CreateNPC(newNPC).subscribe((res: Confirmation) => {
-      if (!res.HasError) {
-        this.npcService.GetAllNPCs();
-      } else {
-        console.log(res.ErrorMessage);
-      }
+    const dialogRef = this.dialog.open(NpcCreateComponent, {});
+    dialogRef.afterClosed().subscribe((res: any) => {
+      console.log(res);
     });
   }
 }
