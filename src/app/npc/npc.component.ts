@@ -15,13 +15,14 @@ export class NpcComponent implements OnInit {
   constructor(public npcService: NPCService, private dialog: MatDialog) {}
 
   ngOnInit(): void {
-    this.npcService.GetAllNPCs();
+    this.npcService.GetAllNPCs().subscribe();
+    this.npcService.GetAllReligions().subscribe();
   }
 
-  createNPC() {
+  openCreateDialog() {
     const dialogRef = this.dialog.open(NpcCreateComponent, {});
     dialogRef.afterClosed().subscribe((res: any) => {
-      console.log(res);
+      //console.log(res);
     });
   }
 }

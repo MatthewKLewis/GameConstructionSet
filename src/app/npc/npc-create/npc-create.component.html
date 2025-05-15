@@ -1,29 +1,33 @@
-<form class="form">
+<div class="form">
   <h1>Create New NPC</h1>
-  <input type="text" placeholder="First Name">
-  <input type="text" placeholder="Last Name">
+  <input type="text" placeholder="First Name" [(ngModel)]="newNPC.FirstName" />
+  <input type="text" placeholder="Last Name" [(ngModel)]="newNPC.LastName" />
 
-  <select>
-    <option>No Race</option>
+  <span>Race</span>
+  <select [(ngModel)]="newNPC.Race">
+    <!-- <option>No Race</option> -->
     @for (race of npcService.race$.getValue(); track race) {
-      <option>{{race.Name}}</option>
+    <option>{{ race.Name }}</option>
     }
   </select>
 
-  <select>
-    <option>No Family</option>
+  <span>Family</span>
+  <select [(ngModel)]="newNPC.Family">
+    <!-- <option>No Family</option> -->
     @for (family of npcService.family$.getValue(); track family) {
-      <option>{{family}}</option>
+    <option>{{ family }}</option>
     }
   </select>
 
-  <select>
-    <option>No Religion</option>
+  <span>Religion</span>
+  <select [(ngModel)]="newNPC.Religion">
+    <!-- <option>No Religion</option> -->
     @for (religion of npcService.religion$.getValue(); track religion) {
-      <option>{{religion}}</option>
+    <option [value]="religion">{{ religion.Name }}</option>
     }
   </select>
 
-  <button>Create</button>
+  <hr style="margin-bottom: 1em" />
+  <button (click)="submit()">Create</button>
   <button>Cancel</button>
-</form>
+</div>

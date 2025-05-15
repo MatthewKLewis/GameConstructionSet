@@ -8,9 +8,8 @@ import { NPCService } from '../services/npc.service';
   templateUrl: './race.component.html',
   styleUrl: './race.component.scss',
 })
-export class RaceComponent implements OnInit {
-  constructor(public npcService: NPCService) {}
-  ngOnInit(): void {
-    this.npcService.GetAllRaces();
+export class RaceComponent {
+  constructor(public npcService: NPCService) {
+    this.npcService.GetAllRaces().subscribe();
   }
 }

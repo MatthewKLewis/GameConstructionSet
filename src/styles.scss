@@ -1,7 +1,6 @@
-
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
-@use '@angular/material' as mat;
+@use "@angular/material" as mat;
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -20,15 +19,17 @@ $plovdiv-warn: mat.define-palette(mat.$red-palette);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$plovdiv-theme: mat.define-light-theme((
-  color: (
-    primary: $plovdiv-primary,
-    accent: $plovdiv-accent,
-    warn: $plovdiv-warn,
-  ),
-  typography: mat.define-typography-config(),
-  density: 0
-));
+$plovdiv-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $plovdiv-primary,
+      accent: $plovdiv-accent,
+      warn: $plovdiv-warn,
+    ),
+    typography: mat.define-typography-config(),
+    density: 0,
+  )
+);
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
@@ -40,8 +41,61 @@ $plovdiv-theme: mat.define-light-theme((
   font-family: monospace;
 }
 body {
-  background-color: #d3b1b1;
-
+  background-color: #b1d3c3;
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+//#region FORMS
+
+.form {
+  display: flex;
+  flex-direction: column;
+
+  padding: 1em;
+
+  h1 {
+    font-size: 16px;
+  }
+
+  input,
+  select,
+  button {
+    margin-bottom: 1em;
+  }
+}
+
+//#endregion
+
+//#region TABLES
+
+.table {
+  border-bottom: 1px solid #e0e0e0;
+
+  .banner {
+    display: flex;
+    flex-direction: row;
+    place-items: center;
+    justify-content: space-between;
+
+    button {
+      height: 2em;
+    }
+  }
+
+  .row {
+    border: 1px solid #e0e0e0;
+    border-bottom: 0;
+    padding: 1em;
+    display: grid;
+    grid-template-columns: repeat(10, 10%);
+  }
+}
+
+//#endregion
