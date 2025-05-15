@@ -67,7 +67,7 @@ router.post('/Create', (req: any, response) => {
   console.log(req.body);
   pool.connect().then(() => {
     pool.request().query(
-      //SQL QUERY
+      //SQL QUERY - sql injection risk!
       `
       USE MKLGame
       INSERT INTO tblNPC (FirstName, 

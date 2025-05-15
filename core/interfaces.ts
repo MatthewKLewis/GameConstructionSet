@@ -14,9 +14,11 @@ export interface NPC {
   ID: number;
   FirstName: string;
   LastName: string;
-  Family: Family;
-  Religion: Religion;
-  Race: Race;
+  //
+  Family?: Family;
+  Religion?: Religion;
+  Race?: Race;
+  //
   WorldID: number;
 }
 export interface Confirmation {
