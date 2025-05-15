@@ -1,0 +1,15 @@
+<h4>NPC Detail</h4>
+@if (npc) {
+<div class="two-column">
+  <span>Name</span>
+  <span>{{ npc.FirstName }} {{ npc.LastName }}</span>
+  <span>Race</span>
+  <span>{{ npc.Race?.Name }}</span>
+  <span>Tribe</span>
+  <span>{{ npc.Family?.Name }}</span>
+  <span>Religion</span>
+  <span>{{ npc.Religion?.Name }}</span>
+</div>
+} @else {
+<span>loading...</span>
+}

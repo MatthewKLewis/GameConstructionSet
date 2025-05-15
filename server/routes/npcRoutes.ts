@@ -63,6 +63,52 @@ router.get('/GetAll', (req, response) => {
   });
 });
 
+router.get('/GetByID', (req, response) => {
+  pool.connect().then(() => {
+    pool.request().query(
+      //SQL QUERY
+      `
+      USE MKLGame
+        SELECT
+          ID,
+          FirstName,
+          LastName,
+          WorldID,
+          (Select * from tblRace r where r.ID = RaceID FOR XML PATH('Race'), type),
+          (Select * from tblFamily f where f.ID = FamilyID  FOR XML PATH('Family'), type),
+          (Select * from tblReligion rel where rel.ID = ReligionID  FOR XML PATH('Religion'), type)
+        FROM MKLGame.dbo.tblNPC where ID = ${req.query.ID}
+        FOR XML PATH('ROOT'), type
+      `,
+      //SQL QUERY
+      (err, queryResult) => {
+        if (err) response.send(err);
+        else {
+          let xmlString = GetXMLStringFromQR(queryResult);
+          parser.parseString(xmlString, function (err, result) {
+            if (err) {
+              console.log(err);
+              return response.json([]);
+            } else {
+              let npc: NPC = {
+                ID: result.ROOT.ID,
+                FirstName: result.ROOT.FirstName,
+                LastName: result.ROOT.LastName,
+                Race: result.ROOT.Race,
+                WorldID: result.ROOT.WorldID,
+                Family: result.ROOT.Family,
+                Religion: result.ROOT.Religion,
+              };
+              return response.json(npc);
+            }
+          });
+        }
+      }
+    );
+    sql.close();
+  });
+});
+
 router.post('/Create', (req: any, response) => {
   console.log(req.body);
   pool.connect().then(() => {

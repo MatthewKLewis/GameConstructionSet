@@ -99,3 +99,14 @@ body {
 }
 
 //#endregion
+
+//#region DETAILS
+
+.two-column {
+  display: grid;
+  padding: 1em;
+  border: 1px solid black;
+  grid-template-columns: 50% 50%;
+}
+
+//#endregion

@@ -22,7 +22,10 @@
     <span>{{ npc.Family?.Name }}</span>
     <span>{{ npc.Religion?.Name }}</span>
     <span>{{ npc.WorldID }}</span>
-    <a style="color: blue" [routerLink]="'npc-details/' + npc.ID"
+    <a
+      style="color: blue"
+      [routerLink]="'/npc-detail'"
+      [queryParams]="{ ID: npc.ID }"
       >View Details</a
     >
   </div>

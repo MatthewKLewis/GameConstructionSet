@@ -35,6 +35,23 @@ export class NPCService {
     );
   }
 
+  GetNPCByID(ID: number): Observable<NPC> {
+    return this.http.get(`http://localhost:4201/npc/GetByID?ID=${ID}`).pipe(
+      map((data: any) => {
+        const npc: NPC = {
+          ID: data.ID,
+          FirstName: data.FirstName,
+          LastName: data.LastName,
+          Race: data.Race,
+          WorldID: data.WorldID,
+          Family: data.Family,
+          Religion: data.Religion,
+        };
+        return npc;
+      })
+    );
+  }
+
   GetAllRaces(): Observable<any> {
     return this.http.get('http://localhost:4201/race/GetAll').pipe(
       map((data: any) => {
