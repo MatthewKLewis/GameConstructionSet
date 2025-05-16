@@ -1,13 +1,13 @@
 <div class="table">
   <h1>Race Table</h1>
   <div class="row">
-      <b>ID</b>
-      <b>Name</b>
+    <b>ID</b>
+    <b>Name</b>
   </div>
-  @for (race of npcService.race$.getValue(); track race) {
-    <div class="row">
-      <span>{{race.ID}}</span>
-      <span>{{race.Name}}</span>
-    </div>
+  @for (race of apiService.race$.getValue(); track race) {
+  <div class="row">
+    <span>{{ race.ID }}</span>
+    <span>{{ race.Name }}</span>
+  </div>
   }
 </div>

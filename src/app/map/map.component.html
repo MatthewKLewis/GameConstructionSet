@@ -1,0 +1,11 @@
+<div class="grid">
+  @for (y of yArray; track y) {
+  <div class="row">
+    @for (x of xArray; track x) {
+    <div class="tile" routerLink="/map-detail" [queryParams]="{ x: x, y: y }">
+      <span style="font-size: smaller"> {{ x }},{{ y }} </span>
+    </div>
+    }
+  </div>
+  }
+</div>

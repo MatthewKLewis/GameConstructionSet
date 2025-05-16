@@ -21,6 +21,14 @@ export interface NPC {
   //
   WorldID: number;
 }
+export interface WorldTile {
+  ID: number;
+  X: number;
+  Y: number;
+  Type: string;
+}
+
+//For Creation, Updates, Deletion
 export interface Confirmation {
   ID: number;
   SuccessMessage: string;

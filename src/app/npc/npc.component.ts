@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NPCService } from '../services/npc.service';
+import { APIService } from '../services/api.service';
 import { RouterLink } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { NpcCreateComponent } from './npc-create/npc-create.component';
@@ -12,11 +12,11 @@ import { NpcCreateComponent } from './npc-create/npc-create.component';
   styleUrl: './npc.component.scss',
 })
 export class NpcComponent implements OnInit {
-  constructor(public npcService: NPCService, private dialog: MatDialog) {}
+  constructor(public apiService: APIService, private dialog: MatDialog) {}
 
   ngOnInit(): void {
-    this.npcService.GetAllNPCs().subscribe();
-    this.npcService.GetAllReligions().subscribe();
+    this.apiService.GetAllNPCs().subscribe();
+    this.apiService.GetAllReligions().subscribe();
   }
 
   openCreateDialog() {

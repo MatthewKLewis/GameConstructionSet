@@ -6,7 +6,7 @@
   <span>Race</span>
   <select [(ngModel)]="newNPC.Race">
     <!-- <option>No Race</option> -->
-    @for (race of npcService.race$.getValue(); track race) {
+    @for (race of apiService.race$.getValue(); track race) {
     <option>{{ race.Name }}</option>
     }
   </select>
@@ -14,7 +14,7 @@
   <span>Family</span>
   <select [(ngModel)]="newNPC.Family">
     <!-- <option>No Family</option> -->
-    @for (family of npcService.family$.getValue(); track family) {
+    @for (family of apiService.family$.getValue(); track family) {
     <option>{{ family }}</option>
     }
   </select>
@@ -22,7 +22,7 @@
   <span>Religion</span>
   <select [(ngModel)]="newNPC.Religion">
     <!-- <option>No Religion</option> -->
-    @for (religion of npcService.religion$.getValue(); track religion) {
+    @for (religion of apiService.religion$.getValue(); track religion) {
     <option [value]="religion">{{ religion.Name }}</option>
     }
   </select>

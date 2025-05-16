@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NPCService } from '../services/npc.service';
+import { APIService } from '../services/api.service';
 
 @Component({
   selector: 'app-religion',
@@ -9,7 +9,7 @@ import { NPCService } from '../services/npc.service';
   styleUrl: './religion.component.scss',
 })
 export class ReligionComponent {
-  constructor(public npcService: NPCService) {
-    this.npcService.GetAllReligions().subscribe();
+  constructor(public apiService: APIService) {
+    this.apiService.GetAllReligions().subscribe();
   }
 }

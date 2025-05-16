@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NPCService } from '../services/npc.service';
+import { APIService } from '../services/api.service';
 import { RouterLink } from '@angular/router';
 
 @Component({

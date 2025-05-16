@@ -1,0 +1,16 @@
+<div class="portrait-maker-frame">
+  <div class="arrows">
+    <button (click)="advance(-1, 'Hair')"><</button>
+    <button (click)="advance(-1, 'Nose')"><</button>
+    <button (click)="advance(-1, 'Mouth')"><</button>
+  </div>
+  <div class="canvas-container">
+    <canvas width="256" height="256" #myCanvas></canvas>
+  </div>
+  <div class="arrows">
+    <button (click)="advance(1, 'Hair')">></button>
+    <button (click)="advance(1, 'Nose')">></button>
+    <button (click)="advance(1, 'Mouth')">></button>
+  </div>
+</div>
+<button (click)="saveImage()">Save Image for Character</button>

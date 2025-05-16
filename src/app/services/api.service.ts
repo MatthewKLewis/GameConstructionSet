@@ -1,14 +1,21 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, map } from 'rxjs';
-import { Family, NPC, Race, Religion } from '../../../core/interfaces';
+import {
+  Family,
+  NPC,
+  Race,
+  Religion,
+  WorldTile,
+} from '../../../core/interfaces';
 
 @Injectable({
   providedIn: 'root',
 })
-export class NPCService {
+export class APIService {
   npc$ = new BehaviorSubject<NPC[]>([]);
   race$ = new BehaviorSubject<Race[]>([]);
+  worldTile$ = new BehaviorSubject<WorldTile[]>([]);
   family$ = new BehaviorSubject<Family[]>([]);
   religion$ = new BehaviorSubject<Religion[]>([]);
 
@@ -63,6 +70,23 @@ export class NPCService {
           return tempRace;
         });
         this.race$.next(races);
+      })
+    );
+  }
+
+  GetAllWorldTiles(): Observable<any> {
+    return this.http.get('http://localhost:4201/worldTile/GetAll').pipe(
+      map((data: any) => {
+        let tiles: WorldTile[] = data.map((t: any) => {
+          const tempTile: WorldTile = {
+            ID: t.ID,
+            X: t.X,
+            Y: t.Y,
+            Type: t.Type,
+          };
+          return tempTile;
+        });
+        this.worldTile$.next(tiles);
       })
     );
   }

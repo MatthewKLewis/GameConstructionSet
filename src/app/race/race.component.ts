@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NPCService } from '../services/npc.service';
+import { APIService } from '../services/api.service';
 
 @Component({
   selector: 'app-race',
@@ -9,7 +9,7 @@ import { NPCService } from '../services/npc.service';
   styleUrl: './race.component.scss',
 })
 export class RaceComponent {
-  constructor(public npcService: NPCService) {
-    this.npcService.GetAllRaces().subscribe();
+  constructor(public apiService: APIService) {
+    this.apiService.GetAllRaces().subscribe();
   }
 }

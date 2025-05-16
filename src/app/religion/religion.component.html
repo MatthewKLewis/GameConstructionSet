@@ -4,7 +4,7 @@
     <b>ID</b>
     <b>Name</b>
   </div>
-  @for (race of npcService.religion$.getValue(); track race) {
+  @for (race of apiService.religion$.getValue(); track race) {
   <div class="row">
     <span>{{ race.ID }}</span>
     <span>{{ race.Name }}</span>

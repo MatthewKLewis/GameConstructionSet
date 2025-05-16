@@ -13,7 +13,7 @@
     <b>World ID</b>
     <b>Details</b>
   </div>
-  @for (npc of npcService.npc$.getValue(); track npc) {
+  @for (npc of apiService.npc$.getValue(); track npc) {
   <div class="row">
     <span>{{ npc.ID }}</span>
     <span>{{ npc.FirstName }}</span>

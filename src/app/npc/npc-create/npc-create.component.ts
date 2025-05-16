@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NPCService } from '../../services/npc.service';
+import { APIService } from '../../services/api.service';
 import { NPC } from '../../../../core/interfaces';
 import { FormsModule } from '@angular/forms';
 
@@ -13,8 +13,8 @@ import { FormsModule } from '@angular/forms';
 export class NpcCreateComponent {
   newNPC: NPC;
 
-  constructor(public npcService: NPCService) {
-    npcService.GetAllRaces();
+  constructor(public apiService: APIService) {
+    apiService.GetAllRaces();
     this.newNPC = {
       ID: 0,
       FirstName: '',
@@ -26,7 +26,7 @@ export class NpcCreateComponent {
   submit() {
     if (this.newNPC.FirstName != '') {
       console.log(this.newNPC);
-      //this.npcService.CreateNPC(this.newNPC);
+      //this.apiService.CreateNPC(this.newNPC);
     }
   }
 }
